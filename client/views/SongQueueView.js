@@ -4,7 +4,10 @@ window.MyTunes.Views = window.MyTunes.Views || {};
 
 MyTunes.Views.SongQueueView = Backbone.View.extend({
 
+  tagName: "table",
+
   initialize: function() {
+    this.render();
     var that = this;
     this.collection.on("add", function(){
       that.render();
