@@ -15,8 +15,12 @@ MyTunes.Views.PlayerView = Backbone.View.extend({
   },
 
   setSong: function(song){
+    var that = this;
     this.model = song;
     this.render();
+    this.model.on("dequeue", function(){
+      that.$el.attr('src','');
+    });
   },
 
   render: function(){
