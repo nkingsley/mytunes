@@ -4,7 +4,7 @@ describe('AppView', function() {
   beforeEach(function () {
     app = new MyTunes.Models.AppModel({library:
       new MyTunes.Collections.Songs([
-        {
+       {
           artist: 'Fakey McFakerson',
           title: 'Never Gonna Mock You Up',
           url: 'example/url'
@@ -28,6 +28,13 @@ describe('AppView', function() {
       expect(appView.playerView.model).not.toEqual(song);
       song.play();
       expect(appView.playerView.model).toEqual(song);
+    });
+  });
+  describe('when a song is played', function() {
+    it('increments the playcount', function(){
+      var song = app.get('library').at(0);
+      song.play();
+      expect(song.playcount).toEqual(1);
     });
   });
 

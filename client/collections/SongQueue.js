@@ -18,10 +18,11 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
     });
     this.on("dequeue", function(e){
       this.remove(e);
-      debugger;
+      this.playFirst();
     });
   },
   playFirst: function(){
     this.at(0).play();
+    this.trigger("playFirst",this);
   }
 });
