@@ -11,7 +11,6 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
     });
     this.on("ended", function(){
       this.shift();
-      console.log(this);
       if (this.length > 0) {
         this.playFirst();
       }
@@ -19,6 +18,11 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
     this.on("dequeue", function(e){
       this.remove(e);
       this.playFirst();
+    });
+    this.on("selected", function(e){
+      if (this.length){
+        this.playFirst();
+      }
     });
   },
   playFirst: function(){

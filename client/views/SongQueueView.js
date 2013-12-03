@@ -7,7 +7,7 @@ MyTunes.Views.SongQueueView = Backbone.View.extend({
   tagName: "table",
 
   initialize: function() {
-    // this.render();
+    this.render();
     var that = this;
     this.collection.on("add", function(){
       that.render();
